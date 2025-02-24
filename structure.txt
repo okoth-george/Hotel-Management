@@ -1,0 +1,25 @@
+Folder PATH listing
+Volume serial number is 642A-92C4
+C:.
+¦   customer.py
+¦   database.py
+¦   food_menu.py
+¦   main_app.py
+¦   order.py
+¦   structure.txt
+¦   
++---static
+¦       styles.css
+¦       
++---templates
+¦       index.html
+¦       menu.html
+¦       order.html
+¦       
++---__pycache__
+        customer.cpython-313.pyc
+        database.cpython-313.pyc
+        food_menu.cpython-313.pyc
+        main_app.cpython-313.pyc
+        order.cpython-313.pyc
+        

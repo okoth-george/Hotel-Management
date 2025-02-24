@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+</head>
+<body>
+    <h1>Place Order</h1>
+    <form action="/order" method="POST">
+        <input type="number" name="customer_id" placeholder="Enter Customer ID" required>
+        <input type="number" name="food_id" placeholder="Enter Food ID" required>
+        <input type="number" name="quantity" placeholder="Enter Quantity" required>
+        <button type="submit">Place Order</button>
+    </form>
+    <a href="/">Go Back</a>
+</body>
+</html>

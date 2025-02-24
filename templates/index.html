@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to Hotel Management System</h1>
+
+    <h2>Navigation</h2>
+    <ul>
+        <li><a href="/menu">View Menu</a></li>
+        <li><a href="/order">Place Order</a></li>
+
+
+    
+    </ul>
+    
+
+    <h2>Register Customer</h2>
+    <form action="/register" method="POST">
+        <input type="text" name="name" placeholder="Enter name" required>
+        <input type="text" name="phone" placeholder="Enter phone number" required>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
