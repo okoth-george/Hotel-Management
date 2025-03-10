@@ -70,4 +70,4 @@ def order():
     
     return jsonify({"food": food_item[0], "quantity": quantity, "total_price": total_price})
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000,debug=True)
