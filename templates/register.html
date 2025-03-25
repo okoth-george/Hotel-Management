@@ -3,29 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Place Order</title>
+    <title>Register</title>
     <style>
-        /* Google Font */
+        /* Import Google Font */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-        /* General Styles */
+        /* Body Styling */
         body {
-            background: linear-gradient(to right, #2C3E50, #4CA1AF); /* Modern gradient */
             font-family: 'Poppins', sans-serif;
-            text-align: center;
+            background: linear-gradient(to right, #2C3E50, #4CA1AF); /* Smooth Gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 20px;
+            flex-direction: column;
         }
-
-        h1 {
-            color: white;
-            margin-bottom: 20px;
-        }
-
+        
         /* Flash Message Styling */
         .flash-messages {
             position: fixed;
-            top: 10px;
+            top: 10px; /* Appear at the top */
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
@@ -63,66 +61,97 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .flash-messages {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+         }
 
-        /* Form Container */
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 400px;
-            margin: auto;
-            margin-top: 60px;
+        .flash-messages.show {
+    opacity: 1;
         }
 
-        /* Form Inputs */
+         .flash-messages:not(.show) {
+    display: none;
+         }
+
+
+        /* Container Styling */
+        .container {
+            background: rgba(255, 255, 255, 0.15); /* Glassmorphism Effect */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px); /* Blur Effect */
+            text-align: center;
+            width: 350px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover Animation */
+        .container:hover {
+            transform: scale(1.03);
+        }
+
+        /* Heading */
+        .container h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Input Fields */
         input {
             width: 100%;
             padding: 12px;
             margin: 10px 0;
             border-radius: 8px;
-            border: 1px solid #ccc;
+            border: none;
             font-size: 16px;
+            outline: none;
             text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* Buttons */
         .btn {
             display: inline-block;
-            background: #28a745;
-            color: white;
+            background: #ffcc00;
+            color: black;
             padding: 12px 20px;
             font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            margin: 15px 0;
-            transition: all 0.3s ease;
-            width: 100%;
             font-weight: bold;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border: none;
             cursor: pointer;
+            text-decoration: none;
+            width: 100%;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin: 10px 0;
         }
 
+        /* Button Hover Effect */
         .btn:hover {
-            background: #218838;
+            background: #ffaa00;
             transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Previous Page Button */
-        .btn-secondary {
-            background: #007bff;
-        }
-
-        .btn-secondary:hover {
-            background: #0056b3;
+        /* Responsive Design */
+        @media (max-width: 400px) {
+            .container {
+                width: 90%;
+                padding: 30px;
+            }
         }
     </style>
 </head>
 <body>
-    
-    <h1>🛒 Place Your Order</h1>
 
     <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=True) %}
@@ -133,14 +162,15 @@
         {% endif %}
     {% endwith %}
 
-    <!-- Order Form -->
+    <!-- Registration Form -->
     <div class="container">
-        <form action="{{ url_for('odd.order') }}" method="POST">
-            <input type="number" name="food_id" placeholder="Enter Food ID" required>
-            <input type="number" name="quantity" placeholder="Enter Quantity" required>
-            <button type="submit" class="btn">Place Order</button>
+        <h1>Create an Account</h1>
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit" class="btn">Register</button>
         </form>
-        <a href="/menu" class="btn btn-secondary">⬅️ Previous Page</a>
+        <a href="{{ url_for('log.login') }}" class="btn">Back to Login</a>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {

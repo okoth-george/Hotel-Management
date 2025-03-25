@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+   
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Poppins', Arial, sans-serif; /* Modern Font */
+            text-align: center;
+            background: linear-gradient(to right, #28a745, #007bff); /* Smooth Gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container Styling */
+        .container {
+            background: rgba(255, 255, 255, 0.15); /* Soft Glassmorphism */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Soft Shadow */
+            backdrop-filter: blur(10px); /* Glassmorphism Effect */
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        /* Heading Styling */
+        .container h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            background: #ffcc00; /* Bright Yellow */
+            color: black;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button Hover Effect */
+        .btn:hover {
+            background: #ffaa00;
+            transform: scale(1.1);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Restaurant</h1>
+        <a href="/login" class="btn">Login</a>
+    </div>
+</body>
+</html>

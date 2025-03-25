@@ -1,0 +1,102 @@
+/* General Page Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111;
+    overflow: hidden;
+}
+
+/* Center the login box */
+.container {
+    position: relative;
+}
+
+/* Rings Animation */
+.ring-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ring {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    animation: rotate 5s linear infinite, colorShift 5s infinite alternate;
+}
+
+/* Creating different ring delays */
+.ring:nth-child(1) {
+    animation-delay: 0s;
+}
+.ring:nth-child(2) {
+    width: 320px;
+    height: 320px;
+    animation-delay: 0.5s;
+}
+.ring:nth-child(3) {
+    width: 340px;
+    height: 340px;
+    animation-delay: 1s;
+}
+
+/* Rotation Animation */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Color Shifting Animation */
+@keyframes colorShift {
+    0% { border-color: #ff00ff; box-shadow: 0 0 15px #ff00ff; }
+    50% { border-color: #00ffff; box-shadow: 0 0 15px #00ffff; }
+    100% { border-color: #ffcc00; box-shadow: 0 0 15px #ffcc00; }
+}
+
+/* Styling the login box */
+.login-box {
+    width: 260px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    position: absolute;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: #ff00ff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background: #ffcc00;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #2C3E50, #4CA1AF); /* Smooth Gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        /* Flash Message Styling */
+        .flash-container {
+            position: fixed;
+            top: 10px; /* Ensure it appears at the top */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 500px;
+            z-index: 1000;
+        }
+        .flash-messages {
+            position: fixed;
+            top: 10px; /* Appear at the top */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 1000;
+            display: none; /* Initially hidden */
+        }
+
+        /* Success Message */
+        .flash-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        /* Error Message */
+        .flash-error {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        /* Show flash messages */
+        .flash-messages.show {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* Container Styling */
+        .container {
+            background: rgba(255, 255, 255, 0.15); /* Glassmorphism Effect */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px); /* Blur Effect */
+            text-align: center;
+            width: 350px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover Animation */
+        .container:hover {
+            transform: scale(1.03);
+        }
+
+        /* Heading */
+        .container h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Input Fields */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #ffcc00;
+            color: black;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            width: 100%;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin: 10px 0;
+        }
+
+        /* Button Hover Effect */
+        .btn:hover {
+            background: #ffaa00;
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 400px) {
+            .container {
+                width: 90%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class ="flash-container ">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-messages flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="container">
+        <h1>Welcome Back!</h1>
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <a href="/register" class="btn">Register</a>
+        <a href="/" class="btn">Home Page</a>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let flashMessages = document.querySelectorAll(".flash-messages");
+            flashMessages.forEach(function (msg) {
+                msg.classList.add("show");
+                setTimeout(function () {
+                    msg.style.display = "none";
+                }, 4000); // Hide after 4 seconds
+            });
+        });
+    </script>
+
+</body>
+</html>

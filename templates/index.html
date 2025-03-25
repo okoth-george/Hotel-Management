@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Management System</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='ring.css') }}">
 </head>
 <body>
-    <h1>Welcome to Hotel Management System</h1>
-
-    <h2>Navigation</h2>
-    <ul>
-        <li><a href="/menu">View Menu</a></li>
-        <li><a href="/order">Place Order</a></li>
-
-
-    
-    </ul>
-    
-
-    <h2>Register Customer</h2>
-    <form action="/register" method="POST">
-        <input type="text" name="name" placeholder="Enter name" required>
-        <input type="text" name="phone" placeholder="Enter phone number" required>
-        <button type="submit">Register</button>
-    </form>
+    <div class="container">
+        <div class="ring-container">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="login-box">
+                <h2>Login</h2>
+                <form action="{{ url_for('auth.login') }}" method="POST">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+

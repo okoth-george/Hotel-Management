@@ -1,0 +1,60 @@
+/* General Body Styling */
+body {
+    background: linear-gradient(to right, #28a745, #007bff); /* Gradient Background */
+    font-family: 'Poppins', Arial, sans-serif; /* Modern Font */
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for Centering Content */
+.container {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent White */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Soft Shadow */
+    width: 400px;
+    text-align: center;
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+/* Modern Button Styles */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #ffcc00; /* Yellow Buttons */
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    background-color: #ffaa00;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Button Shadow on Hover */
+}
